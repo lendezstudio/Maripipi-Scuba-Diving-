@@ -53,6 +53,9 @@ Export-Crop 'pexels-graham-henderson-37078134-7169290.jpg' 900 0 1800 1005 @(160
 Export-Crop 'photo0jpg.jpg' 0 0 1200 1200 @(1200, 800) 'island-ridge-peak' 80
 Export-Crop 'images (1).jpg' 0 0 452 678 @(452) 'island-ridge-cottages' 84
 Export-Crop 'download.jpg' 0 0 289 312 @(289) 'island-headland' 86
+# Illustrative above-water photos (Pexels). No names or registration marks visible.
+Export-Crop 'pexels-thephotokai-38354745.jpg' 0 0 6548 4365 @(1400, 900) 'outrigger-dusk' 78
+Export-Crop 'pexels-cliffordpatricio-16311569.jpg' 700 0 4877 3902 @(1000, 700) 'outrigger-golden' 78
 
 # --- Logo -------------------------------------------------------------------
 # Dive-mask logo (transparent PNG). Trim rectangle = visible artwork plus a few px.

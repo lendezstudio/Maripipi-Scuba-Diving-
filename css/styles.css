@@ -616,21 +616,12 @@ figcaption .image-note { margin-left: auto; }
 .purpose__copy p:not(.eyebrow):not(.purpose__line) { color: rgba(241, 245, 248, 0.86); max-width: 36rem; }
 .purpose__copy em { font-style: normal; color: var(--white); font-weight: 600; }
 .purpose__line {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
   margin-top: 2.25rem;
   font-family: var(--display);
   font-stretch: 125%;
   font-weight: 800;
   font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.5rem);
   line-height: 1.25;
-}
-.purpose__line::before {
-  content: "";
-  width: 48px; height: 1px;
-  background: var(--marine);
-  flex-shrink: 0;
 }
 
 /* Care */
@@ -671,6 +662,10 @@ figcaption .image-note { margin-left: auto; }
 .gallery__item--above .frame { aspect-ratio: 2 / 3; }
 .gallery__item--below { grid-column: 6 / span 7; margin-bottom: clamp(0rem, 8vw, 7rem); }
 .gallery__item--below .frame { aspect-ratio: 16 / 9; }
+.gallery__item--dusk { grid-column: 2 / span 6; }
+.gallery__item--dusk .frame { aspect-ratio: 3 / 2; }
+.gallery__item--golden { grid-column: 9 / span 4; align-self: start; margin-top: clamp(0rem, 6vw, 5rem); }
+.gallery__item--golden .frame { aspect-ratio: 5 / 4; }
 
 /* Plan */
 .plan {
@@ -1020,6 +1015,8 @@ figcaption .image-note { margin-left: auto; }
 
   .gallery__item--above { grid-column: 1 / span 5; }
   .gallery__item--below { grid-column: 6 / -1; margin-bottom: 4rem; }
+  .gallery__item--dusk { grid-column: 1 / span 7; }
+  .gallery__item--golden { grid-column: 8 / -1; }
 
   .site-footer__grid { grid-template-columns: 1fr 1fr; }
   .site-footer__brand { grid-column: 1 / -1; }
@@ -1079,9 +1076,13 @@ figcaption .image-note { margin-left: auto; }
   .principles { grid-template-columns: 1fr; }
 
   .gallery__item--above,
-  .gallery__item--below { grid-column: 1 / -1; margin-bottom: 0; }
+  .gallery__item--below,
+  .gallery__item--dusk,
+  .gallery__item--golden { grid-column: 1 / -1; margin: 0; }
   .gallery__item--above { width: 82%; }
   .gallery__item--below { width: 92%; justify-self: end; }
+  .gallery__item--dusk { width: 100%; }
+  .gallery__item--golden { width: 80%; justify-self: end; }
 
   .step { grid-template-columns: 3.75rem 1fr; }
   .step__num { font-size: 1.2rem; }
