@@ -615,6 +615,23 @@ figcaption .image-note { margin-left: auto; }
 .purpose__copy { grid-column: 7 / span 6; }
 .purpose__copy p:not(.eyebrow):not(.purpose__line) { color: rgba(241, 245, 248, 0.86); max-width: 36rem; }
 .purpose__copy em { font-style: normal; color: var(--white); font-weight: 600; }
+.purpose__quote { margin: 0; }
+.purpose__quote blockquote {
+  margin: 0;
+  padding-left: clamp(1.1rem, 2vw, 1.6rem);
+  border-left: 1px solid var(--rule-strong);
+}
+.purpose__quote figcaption {
+  display: block;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  border: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pale);
+}
 .purpose__line {
   margin-top: 2.25rem;
   font-family: var(--display);
