@@ -372,7 +372,7 @@ svg { flex-shrink: 0; }
   text-shadow: 0 2px 40px rgba(5, 9, 15, 0.35);
 }
 .hero__line { display: block; white-space: nowrap; }
-.hero__line--2 { margin-top: clamp(0.5rem, 12vh, 8rem); }
+.hero__line--2 { margin-top: 0.06em; }
 
 .hero__foot {
   margin-top: auto;
@@ -1102,8 +1102,9 @@ figcaption .image-note { margin-left: auto; }
   .hero__eyebrow { letter-spacing: 0.22em; font-size: 0.7rem; }
   /* Sized so "WORLD BELOW." (about 9.9em wide) always fits on one line. */
   .hero__title { font-size: calc((100vw - 2 * var(--gutter)) / 10.4); line-height: 0.94; }
-  .hero__line--2 { margin-top: max(14rem, 34svh); }
-  .hero__foot { padding-top: 2.25rem; gap: 2rem; }
+  .hero__line--2 { margin-top: 0.06em; }
+  /* Leaves the diver visible between the headline and the intro. */
+  .hero__foot { padding-top: max(14rem, 38svh); gap: 2rem; }
   .hero__actions .btn { flex: 1 1 100%; }
   .hero__panel { grid-template-columns: 84px 1fr; gap: 1rem; padding: 1rem; }
   .hero__panel-img { width: 84px; min-height: 110px; }
