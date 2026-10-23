@@ -603,7 +603,7 @@ figcaption .image-note { margin-left: auto; }
   gap: 3rem var(--gutter);
   align-items: center;
 }
-.purpose__logo { grid-column: 1 / span 6; justify-self: center; width: min(100%, 560px); position: relative; }
+.purpose__logo { grid-column: 1 / span 5; justify-self: center; width: min(100%, 560px); position: relative; }
 .purpose__logo::before {
   content: "";
   position: absolute;
@@ -612,21 +612,32 @@ figcaption .image-note { margin-left: auto; }
   pointer-events: none;
 }
 .purpose__logo img { position: relative; filter: drop-shadow(0 30px 60px rgba(5, 9, 15, 0.7)); }
-.purpose__copy { grid-column: 7 / span 6; }
-.purpose__copy p:not(.eyebrow):not(.purpose__line) { color: rgba(241, 245, 248, 0.86); max-width: 36rem; }
-.purpose__copy em { font-style: normal; color: var(--white); font-weight: 600; }
-.purpose__vision {
+.purpose__copy { grid-column: 6 / span 7; }
+/* Scales with the text column so "COME FOR THE SEA." (about 14.3em) stays on one line. */
+.purpose__title { font-size: clamp(2rem, (100vw - 6rem) / 26.5, 3.4rem); margin-bottom: clamp(1.75rem, 3vw, 2.5rem); }
+.purpose__br { display: none; }
+.purpose__title-line { display: block; }
+.purpose__body {
+  max-width: 34rem;
   padding-left: clamp(1.1rem, 2vw, 1.6rem);
   border-left: 1px solid var(--rule-strong);
-  line-height: 1.55;
 }
-.purpose__line {
-  margin-top: 1rem;
-  font-family: var(--display);
-  font-stretch: 125%;
-  font-weight: 800;
-  font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.5rem);
-  line-height: 1.25;
+.purpose__body p {
+  margin-bottom: 1.25em;
+  font-size: clamp(1.02rem, 0.98rem + 0.25vw, 1.125rem);
+  line-height: 1.8;
+  color: rgba(241, 245, 248, 0.86);
+}
+.purpose__body p:last-child { margin-bottom: 0; }
+.purpose__cta { margin-top: clamp(2rem, 3.5vw, 2.75rem); }
+.purpose__cta svg { transition: transform 0.5s var(--ease); }
+.purpose__cta:hover svg,
+.purpose__cta:focus-visible svg { transform: translateX(4px); }
+.purpose__cta:focus-visible {
+  background: var(--white);
+  color: var(--ink);
+  outline: 2px solid var(--pale);
+  outline-offset: 4px;
 }
 
 /* Care */
@@ -1106,6 +1117,10 @@ figcaption .image-note { margin-left: auto; }
   /* Leaves the diver visible between the headline and the intro. */
   .hero__foot { padding-top: max(14rem, 38svh); gap: 2rem; }
   .hero__actions .btn { flex: 1 1 100%; }
+  .purpose__cta { width: 100%; }
+  /* "FIND A DEEPER" is about 11em wide; keep it on one line. */
+  .purpose__title { font-size: calc((100vw - 2 * var(--gutter)) / 11.6); }
+  .purpose__br { display: inline; }
   .hero__panel { grid-template-columns: 84px 1fr; gap: 1rem; padding: 1rem; }
   .hero__panel-img { width: 84px; min-height: 110px; }
   .diving::before { display: none; }
