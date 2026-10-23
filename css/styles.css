@@ -618,9 +618,10 @@ figcaption .image-note { margin-left: auto; }
 .purpose__vision {
   padding-left: clamp(1.1rem, 2vw, 1.6rem);
   border-left: 1px solid var(--rule-strong);
+  line-height: 1.55;
 }
 .purpose__line {
-  margin-top: 2.25rem;
+  margin-top: 1rem;
   font-family: var(--display);
   font-stretch: 125%;
   font-weight: 800;
