@@ -56,6 +56,11 @@ Export-Crop 'download.jpg' 0 0 289 312 @(289) 'island-headland' 86
 # Illustrative above-water photos (Pexels). No names or registration marks visible.
 Export-Crop 'pexels-thephotokai-38354745.jpg' 0 0 6548 4365 @(1400, 900) 'outrigger-dusk' 78
 Export-Crop 'pexels-cliffordpatricio-16311569.jpg' 700 0 4877 3902 @(1000, 700) 'outrigger-golden' 78
+# Cropped/sized so that no boat names, registrations or equipment logos are legible.
+Export-Crop 'pexels-robertkso-16851077.jpg' 0 300 5534 3000 @(1000, 700) 'divers-surface' 76
+Export-Crop 'pexels-hossamashoor-31493483.jpg' 2700 1100 3200 2800 @(800, 560) 'gear-check' 78
+Export-Crop 'pexels-xt7core-33549428.jpg' 3000 3300 3048 2748 @(800, 560) 'open-water-wake' 78
+Export-Crop 'pexels-thephotokai-36906346.jpg' 0 1700 3000 1700 @(1000, 700) 'wooded-islet' 78
 
 # --- Logo -------------------------------------------------------------------
 # Dive-mask logo (transparent PNG). Trim rectangle = visible artwork plus a few px.
