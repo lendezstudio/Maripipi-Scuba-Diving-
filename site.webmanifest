@@ -1,0 +1,11 @@
+{
+  "name": "Maripipi Scuba Diving",
+  "short_name": "Maripipi Diving",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }
+  ],
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#05090F",
+  "theme_color": "#05090F"
+}
