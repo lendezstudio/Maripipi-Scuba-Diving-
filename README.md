@@ -35,9 +35,9 @@ powershell -ExecutionPolicy Bypass -File tools\set-site-url.ps1 -Url https://new
 | `hero-diver-*` | Pexels (pspov) | Illustrative, labelled on page |
 | `divers-reef-wall-*` | Pexels (Graham Henderson), cropped to exclude the sea snake | Illustrative, labelled on page |
 | `island-ridge-peak-*`, `island-ridge-cottages-*`, `island-headland-*` | Supplied as Maripipi photos | Confirm ownership/permission with the owner |
-| `logo-badge-*`, favicons | Owner’s logo | Business imagery |
+| `logo-mask-*`, favicons | Owner’s logo (`source-assets/Logo.png`) | Business imagery |
 
-Excluded on purpose: supplied stock photos showing visible equipment brands, identifiable boats with registration marks, or a diver touching the reef. `source-assets/Logo.png` (a dive-mask illustration) is not used; the circular badge is used as the business logo.
+Excluded on purpose: supplied stock photos showing visible equipment brands, identifiable boats with registration marks, or a diver touching the reef. The dive-mask artwork (`Logo.png`) is the site logo; the circular “Scuba Diving Services” badge from WhatsApp is not used.
 
 ## Owner confirmations still needed
 

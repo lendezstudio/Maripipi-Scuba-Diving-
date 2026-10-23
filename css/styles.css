@@ -236,9 +236,8 @@ svg { flex-shrink: 0; }
   justify-self: start;
 }
 .brand__logo {
-  width: 58px; height: 58px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(241, 245, 248, 0.25);
+  width: 92px; height: auto;
+  filter: drop-shadow(0 4px 14px rgba(5, 9, 15, 0.55));
 }
 .brand__name {
   display: flex;
@@ -604,15 +603,15 @@ figcaption .image-note { margin-left: auto; }
   gap: 3rem var(--gutter);
   align-items: center;
 }
-.purpose__badge { grid-column: 1 / span 5; justify-self: center; width: min(100%, 440px); position: relative; }
-.purpose__badge::before {
+.purpose__logo { grid-column: 1 / span 6; justify-self: center; width: min(100%, 560px); position: relative; }
+.purpose__logo::before {
   content: "";
   position: absolute;
-  inset: -9%;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
+  inset: -12% -4%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(36, 105, 148, 0.45), transparent 70%);
+  pointer-events: none;
 }
-.purpose__badge img { border-radius: 50%; box-shadow: 0 40px 120px rgba(36, 105, 148, 0.35); }
+.purpose__logo img { position: relative; filter: drop-shadow(0 30px 60px rgba(5, 9, 15, 0.7)); }
 .purpose__copy { grid-column: 7 / span 6; }
 .purpose__copy p:not(.eyebrow):not(.purpose__line) { color: rgba(241, 245, 248, 0.86); max-width: 36rem; }
 .purpose__copy em { font-style: normal; color: var(--white); font-weight: 600; }
@@ -866,7 +865,7 @@ figcaption .image-note { margin-left: auto; }
   align-items: start;
 }
 .site-footer__brand { display: flex; gap: 1.25rem; align-items: flex-start; }
-.site-footer__brand img { width: 76px; height: 76px; border-radius: 50%; }
+.site-footer__brand img { width: 104px; height: auto; margin-top: 0.15rem; }
 .site-footer__brand p { margin: 0; color: var(--pale); font-size: 0.92rem; }
 .site-footer__name {
   font-family: var(--display);
@@ -1007,9 +1006,9 @@ figcaption .image-note { margin-left: auto; }
 @media (max-width: 960px) {
   .destination__figure,
   .destination__copy,
-  .purpose__badge,
+  .purpose__logo,
   .purpose__copy { grid-column: 1 / -1; }
-  .purpose__badge { width: min(72%, 360px); margin-top: 1rem; }
+  .purpose__logo { width: min(88%, 440px); margin-top: 1rem; }
 
   .diving__head,
   .care__grid,
@@ -1054,7 +1053,7 @@ figcaption .image-note { margin-left: auto; }
 
 @media (max-width: 700px) {
   :root { --header-h: 72px; }
-  .brand__logo { width: 48px; height: 48px; }
+  .brand__logo { width: 72px; }
   .brand__name { font-size: 0.58rem; }
   .brand__name span { font-size: 0.92rem; }
 

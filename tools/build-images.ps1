@@ -55,49 +55,43 @@ Export-Crop 'images (1).jpg' 0 0 452 678 @(452) 'island-ridge-cottages' 84
 Export-Crop 'download.jpg' 0 0 289 312 @(289) 'island-headland' 86
 
 # --- Logo -------------------------------------------------------------------
-# Circular badge from the owner's logo, with the black corners made transparent.
-$badgeSrc = [System.Drawing.Image]::FromFile((Join-Path $src 'WhatsApp Image 2026-10-17 at 5.05.23 PM.jpeg'))
-# Outer white ring: centre and diameter measured from the source (1079x1086).
-$d = 1066  # square from (7,8)
-function Export-Badge($size, $path) {
-  $b, $g = New-Canvas $size $size
+# Dive-mask logo (transparent PNG). Trim rectangle = visible artwork plus a few px.
+$logoSrc = [System.Drawing.Image]::FromFile((Join-Path $src 'Logo.png'))
+$trim = New-Object System.Drawing.Rectangle 40, 42, 1582, 866
+function Export-Logo($width, $path) {
+  $h = [int][Math]::Round($width * $trim.Height / $trim.Width)
+  $b, $g = New-Canvas $width $h
   $g.Clear([System.Drawing.Color]::Transparent)
-  $clip = New-Object System.Drawing.Drawing2D.GraphicsPath
-  $clip.AddEllipse(0, 0, $size, $size)
-  $g.SetClip($clip)
-  $g.DrawImage($badgeSrc, (New-Object System.Drawing.Rectangle 0, 0, $size, $size), (New-Object System.Drawing.Rectangle 7, 8, $d, $d), 'Pixel')
+  $g.DrawImage($logoSrc, (New-Object System.Drawing.Rectangle 0, 0, $width, $h), $trim, 'Pixel')
+  $b.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
+  "{0}  {1}x{2}" -f (Split-Path $path -Leaf), $width, $h
+  $g.Dispose(); $b.Dispose()
+}
+Export-Logo 1200 (Join-Path $img 'logo-mask-1200.png')
+Export-Logo 640 (Join-Path $img 'logo-mask-640.png')
+Export-Logo 200 (Join-Path $img 'logo-mask-200.png')
+
+# Square icons: mask centred on a transparent (or navy, for iOS) square.
+function Export-Icon($size, $path, $bg, $fill) {
+  $b, $g = New-Canvas $size $size
+  $g.Clear($bg)
+  $w = [int][Math]::Round($size * $fill)
+  $h = [int][Math]::Round($w * $trim.Height / $trim.Width)
+  $g.DrawImage($logoSrc, (New-Object System.Drawing.Rectangle ([int](($size - $w) / 2)), ([int](($size - $h) / 2)), $w, $h), $trim, 'Pixel')
   $b.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
   $g.Dispose(); $b.Dispose()
 }
-Export-Badge 720 (Join-Path $img 'logo-badge-720.png')
-Export-Badge 360 (Join-Path $img 'logo-badge-360.png')
-Export-Badge 160 (Join-Path $img 'logo-badge-160.png')
-Export-Badge 192 (Join-Path $ico 'icon-192.png')
-
-# Apple touch icon: badge on a solid navy square (iOS ignores transparency).
-$b, $g = New-Canvas 180 180
-$g.Clear([System.Drawing.Color]::FromArgb(255, 5, 9, 15))
-$clip = New-Object System.Drawing.Drawing2D.GraphicsPath; $clip.AddEllipse(6, 6, 168, 168); $g.SetClip($clip)
-$g.DrawImage($badgeSrc, (New-Object System.Drawing.Rectangle 6, 6, 168, 168), (New-Object System.Drawing.Rectangle 7, 8, $d, $d), 'Pixel')
-$b.Save((Join-Path $ico 'apple-touch-icon.png'), [System.Drawing.Imaging.ImageFormat]::Png); $g.Dispose(); $b.Dispose()
-
-# Small favicons use the palm-and-wave emblem from the same logo: the full
-# badge's lettering is illegible at 16-32px. Emblem area measured from source.
-$emblem = New-Object System.Drawing.Rectangle 48, 352, 290, 196
+$clear = [System.Drawing.Color]::Transparent
+$navy = [System.Drawing.Color]::FromArgb(255, 5, 9, 15)
+Export-Icon 192 (Join-Path $ico 'icon-192.png') $clear 1.0
+Export-Icon 180 (Join-Path $ico 'apple-touch-icon.png') $navy 0.86
 $smallPngs = @{}
 foreach ($s in 16, 32, 48) {
-  $b, $g = New-Canvas $s $s
-  $g.Clear([System.Drawing.Color]::Transparent)
-  $clip = New-Object System.Drawing.Drawing2D.GraphicsPath; $clip.AddEllipse(0, 0, $s, $s); $g.SetClip($clip)
-  $g.Clear([System.Drawing.Color]::FromArgb(255, 241, 245, 248))
-  $eh = [int][Math]::Round($s * 196 / 290 * 0.86); $ew = [int][Math]::Round($s * 0.86)
-  $g.DrawImage($badgeSrc, (New-Object System.Drawing.Rectangle ([int](($s - $ew) / 2)), ([int](($s - $eh) / 2)), $ew, $eh), $emblem, 'Pixel')
   $p = Join-Path $ico "favicon-$s.png"
-  $b.Save($p, [System.Drawing.Imaging.ImageFormat]::Png)
+  Export-Icon $s $p $clear 1.0
   $smallPngs[$s] = [System.IO.File]::ReadAllBytes($p)
-  $g.Dispose(); $b.Dispose()
 }
-$badgeSrc.Dispose()
+$logoSrc.Dispose()
 
 # favicon.ico containing PNG-encoded 16, 32 and 48px images.
 $sizes = 16, 32, 48

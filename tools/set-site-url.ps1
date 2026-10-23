@@ -31,6 +31,6 @@ $block = @"
 $html = [regex]::Replace($html, '<!-- site-url:start -->[\s\S]*?<!-- site-url:end -->', $block.Trim())
 # JSON-LD: drop any previous url/logo, then add the current ones after "name".
 $html = [regex]::Replace($html, '\r?\n\s*"(url|logo)": "[^"]*",', '')
-$html = $html.Replace('"name": "Maripipi Scuba Diving",', "`"name`": `"Maripipi Scuba Diving`",`n    `"url`": `"$Url`",`n    `"logo`": `"$($Url)assets/img/logo-badge-360.png`",")
+$html = $html.Replace('"name": "Maripipi Scuba Diving",', "`"name`": `"Maripipi Scuba Diving`",`n    `"url`": `"$Url`",`n    `"logo`": `"$($Url)assets/img/logo-mask-640.png`",")
 [System.IO.File]::WriteAllText($file, $html, (New-Object System.Text.UTF8Encoding $false))
 "Updated index.html for $Url"
