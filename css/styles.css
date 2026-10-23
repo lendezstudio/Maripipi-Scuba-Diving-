@@ -1094,13 +1094,15 @@ figcaption .image-note { margin-left: auto; }
   .brand__name span { font-size: 0.92rem; }
 
   .hero { min-height: max(100svh, 640px); }
-  .hero__media img { object-position: 50% 30%; }
+  .hero { background: var(--ink); }
+  .hero__media { bottom: auto; height: max(100svh, 640px); }
+  .hero__media img { object-position: 64% 50%; }
   .hero__inner { padding-bottom: 2.5rem; }
-  .hero__eyebrow { text-align: left; letter-spacing: 0.22em; font-size: 0.7rem; }
-  .hero__title { text-align: left; font-size: clamp(2.35rem, 11.4vw, 4.5rem); line-height: 0.94; }
-  .hero__line { white-space: normal; }
-  .hero__line--2 { margin-top: 0.1em; }
-  .hero__foot { padding-top: 46vh; gap: 2rem; }
+  .hero__eyebrow { letter-spacing: 0.22em; font-size: 0.7rem; }
+  /* Sized so "WORLD BELOW." (about 9.9em wide) always fits on one line. */
+  .hero__title { font-size: calc((100vw - 2 * var(--gutter)) / 10.4); line-height: 0.94; }
+  .hero__line--2 { margin-top: max(14rem, 34svh); }
+  .hero__foot { padding-top: 2.25rem; gap: 2rem; }
   .hero__actions .btn { flex: 1 1 100%; }
   .hero__panel { grid-template-columns: 84px 1fr; gap: 1rem; padding: 1rem; }
   .hero__panel-img { width: 84px; min-height: 110px; }

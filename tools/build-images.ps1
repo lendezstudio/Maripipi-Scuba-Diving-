@@ -46,7 +46,8 @@ function Export-Crop($file, $x, $y, $w, $h, $widths, $name, $quality = 78) {
 # Hero (illustrative, Pexels / pspov): landscape crop centred on the descending diver and light shaft.
 Export-Crop 'pexels-pspov-3113226.jpg' 0 640 3662 2290 @(2400, 1600, 1000) 'hero-diver-wide' 74
 # Hero portrait crop for small screens.
-Export-Crop 'pexels-pspov-3113226.jpg' 0 300 3662 4880 @(1000, 700) 'hero-diver-tall' 74
+# Diver centre sits at ~42% height, so it lands between the two mobile headline lines.
+Export-Crop 'pexels-pspov-3113226.jpg' 0 60 3662 4200 @(1000, 700) 'hero-diver-tall' 74
 # Divers above a reef wall (illustrative, Pexels / Graham Henderson). Crop excludes the sea snake.
 Export-Crop 'pexels-graham-henderson-37078134-7169290.jpg' 900 0 1800 1005 @(1600, 1000) 'divers-reef-wall' 78
 # Supplied Maripipi destination photographs (owner-supplied; licensing to be confirmed).
